@@ -17,5 +17,5 @@ router.get('/events/create', eventsController.showCreate);
 router.post('/events/create', eventsController.processCreate);
 router.get('/events/:slug/edit', eventsController.showEdit);
 router.post('/events/:slug', eventsController.processEdit);
-
+router.get('/events/:slug/delete', eventsController.deleteEvent);
 router.get('/events/:slug', eventsController.showSingle);

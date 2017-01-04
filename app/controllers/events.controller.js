@@ -1,6 +1,14 @@
 const Event = require('../models/event');
 
 module.exports = {
+	deleteEvent: (req, res) => {
+  Event.remove({ slug: req.params.slug }, (err) => {
+    // set flash data
+    // redirect back to the events page
+    req.flash('success', 'Event deleted!');
+    res.redirect('/events');
+  });
+	},
 	showEdit: (req, res) => {
   Event.findOne({ slug: req.params.slug }, (err, event) => {
     res.render('pages/edit', {
